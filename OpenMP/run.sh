@@ -13,31 +13,8 @@ calc_avg_stddev()
        }' <<< $1
 }
 
-
-
-exec_string="./vecadd_opt3 "
-
-echo ""
-echo -n `printenv |grep OMP_` ${exec_string}
-
-foo=""
-for index in {1..10}
-do
-   time_result=`${exec_string}`
-   time_val[$index]=${time_result}
-   foo="$foo ${time_result}"
-done
-calc_avg_stddev "${foo}"
-
-THREAD_COUNT="88 44 22 16 8 4 2 1"
-
-for my_thread_count in ${THREAD_COUNT}
-do
-   unset OMP_NUM_THREADS
-   unset OMP_PLACES
-   unset OMP_PROC_BIND
-   export OMP_NUM_THREADS=${my_thread_count}
-
+conduct_tests()
+{
    echo ""
    echo -n `printenv |grep OMP_` ${exec_string}
    foo=""
@@ -48,6 +25,21 @@ do
       foo="$foo ${time_result}"
    done
    calc_avg_stddev "${foo}"
+}
+
+exec_string="./vecadd_opt3 "
+
+conduct_tests
+
+THREAD_COUNT="88 44 22 16 8 4 2 1"
+
+for my_thread_count in ${THREAD_COUNT}
+do
+   unset OMP_PLACES
+   unset OMP_PROC_BIND
+   export OMP_NUM_THREADS=${my_thread_count}
+
+   conduct_tests
 
    PLACES_LIST="threads cores sockets"
    BIND_LIST="true false close spread master"
@@ -56,24 +48,11 @@ do
    do
       for my_bind in ${BIND_LIST}
       do
-         unset OMP_NUM_THREADS
-         unset OMP_PLACES
-         unset OMP_PROC_BIND
          export OMP_NUM_THREADS=${my_thread_count}
          export OMP_PLACES=${my_place}
          export OMP_PROC_BIND=${my_bind}
 
-
-         echo ""
-         echo -n `printenv |grep OMP_` ${exec_string}
-         foo=""
-         for index in {1..10}
-         do
-            time_result=`${exec_string}`
-            time_val[$index]=${time_result}
-            foo="$foo ${time_result}"
-         done
-         calc_avg_stddev "${foo}"
+         conduct_tests
       done
    done
 done
