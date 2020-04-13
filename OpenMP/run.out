@@ -1,0 +1,258 @@
+
+./vecadd_opt3 Number of trials=10,    avg=0.0231274, std dev=0.00390574
+
+OMP_NUM_THREADS=88 ./vecadd_opt3 Number of trials=10,    avg=0.0251082, std dev=0.00366622
+
+OMP_PROC_BIND=true OMP_PLACES=threads OMP_NUM_THREADS=88 ./vecadd_opt3 Number of trials=10,    avg=0.0172679, std dev=7.87025e-05
+
+OMP_PROC_BIND=false OMP_PLACES=threads OMP_NUM_THREADS=88 ./vecadd_opt3 Number of trials=10,    avg=0.0227412, std dev=0.00443425
+
+OMP_PROC_BIND=close OMP_PLACES=threads OMP_NUM_THREADS=88 ./vecadd_opt3 Number of trials=10,    avg=0.0172952, std dev=8.80055e-05
+
+OMP_PROC_BIND=spread OMP_PLACES=threads OMP_NUM_THREADS=88 ./vecadd_opt3 Number of trials=10,    avg=0.017286, std dev=8.5235e-05
+
+OMP_PROC_BIND=master OMP_PLACES=threads OMP_NUM_THREADS=88 ./vecadd_opt3 Number of trials=10,    avg=0.70129, std dev=0.00161533
+
+OMP_PROC_BIND=true OMP_PLACES=cores OMP_NUM_THREADS=88 ./vecadd_opt3 Number of trials=10,    avg=0.0173305, std dev=0.000166936
+
+OMP_PROC_BIND=false OMP_PLACES=cores OMP_NUM_THREADS=88 ./vecadd_opt3 Number of trials=10,    avg=0.0218372, std dev=0.00354373
+
+OMP_PROC_BIND=close OMP_PLACES=cores OMP_NUM_THREADS=88 ./vecadd_opt3 Number of trials=10,    avg=0.0173848, std dev=0.000456635
+
+OMP_PROC_BIND=spread OMP_PLACES=cores OMP_NUM_THREADS=88 ./vecadd_opt3 Number of trials=10,    avg=0.0174623, std dev=0.000579396
+
+OMP_PROC_BIND=master OMP_PLACES=cores OMP_NUM_THREADS=88 ./vecadd_opt3 Number of trials=10,    avg=0.356587, std dev=0.0070026
+
+OMP_PROC_BIND=true OMP_PLACES=sockets OMP_NUM_THREADS=88 ./vecadd_opt3 Number of trials=10,    avg=0.0232362, std dev=0.00366434
+
+OMP_PROC_BIND=false OMP_PLACES=sockets OMP_NUM_THREADS=88 ./vecadd_opt3 Number of trials=10,    avg=0.0244191, std dev=0.00328564
+
+OMP_PROC_BIND=close OMP_PLACES=sockets OMP_NUM_THREADS=88 ./vecadd_opt3 Number of trials=10,    avg=0.0223689, std dev=0.00399624
+
+OMP_PROC_BIND=spread OMP_PLACES=sockets OMP_NUM_THREADS=88 ./vecadd_opt3 Number of trials=10,    avg=0.023715, std dev=0.00334755
+
+OMP_PROC_BIND=master OMP_PLACES=sockets OMP_NUM_THREADS=88 ./vecadd_opt3 Number of trials=10,    avg=0.0463479, std dev=0.00617711
+
+OMP_NUM_THREADS=44 ./vecadd_opt3 Number of trials=10,    avg=0.0206522, std dev=0.00237998
+
+OMP_PROC_BIND=true OMP_PLACES=threads OMP_NUM_THREADS=44 ./vecadd_opt3 Number of trials=10,    avg=0.0338539, std dev=0.000168333
+
+OMP_PROC_BIND=false OMP_PLACES=threads OMP_NUM_THREADS=44 ./vecadd_opt3 Number of trials=10,    avg=0.0209896, std dev=0.00193342
+
+OMP_PROC_BIND=close OMP_PLACES=threads OMP_NUM_THREADS=44 ./vecadd_opt3 Number of trials=10,    avg=0.0337935, std dev=0.000145576
+
+OMP_PROC_BIND=spread OMP_PLACES=threads OMP_NUM_THREADS=44 ./vecadd_opt3 Number of trials=10,    avg=0.0166003, std dev=8.1615e-05
+
+OMP_PROC_BIND=master OMP_PLACES=threads OMP_NUM_THREADS=44 ./vecadd_opt3 Number of trials=10,    avg=0.52729, std dev=0.000780463
+
+OMP_PROC_BIND=true OMP_PLACES=cores OMP_NUM_THREADS=44 ./vecadd_opt3 Number of trials=10,    avg=0.0166047, std dev=0.000139929
+
+OMP_PROC_BIND=false OMP_PLACES=cores OMP_NUM_THREADS=44 ./vecadd_opt3 Number of trials=10,    avg=0.0213952, std dev=0.0017208
+
+OMP_PROC_BIND=close OMP_PLACES=cores OMP_NUM_THREADS=44 ./vecadd_opt3 Number of trials=10,    avg=0.0165903, std dev=0.000127394
+
+OMP_PROC_BIND=spread OMP_PLACES=cores OMP_NUM_THREADS=44 ./vecadd_opt3 Number of trials=10,    avg=0.016607, std dev=8.22508e-05
+
+OMP_PROC_BIND=master OMP_PLACES=cores OMP_NUM_THREADS=44 ./vecadd_opt3 Number of trials=10,    avg=0.270568, std dev=0.0197288
+
+OMP_PROC_BIND=true OMP_PLACES=sockets OMP_NUM_THREADS=44 ./vecadd_opt3 Number of trials=10,    avg=0.0199503, std dev=0.00296938
+
+OMP_PROC_BIND=false OMP_PLACES=sockets OMP_NUM_THREADS=44 ./vecadd_opt3 Number of trials=10,    avg=0.0213613, std dev=0.000764343
+
+OMP_PROC_BIND=close OMP_PLACES=sockets OMP_NUM_THREADS=44 ./vecadd_opt3 Number of trials=10,    avg=0.0195621, std dev=0.00271154
+
+OMP_PROC_BIND=spread OMP_PLACES=sockets OMP_NUM_THREADS=44 ./vecadd_opt3 Number of trials=10,    avg=0.018854, std dev=0.000708066
+
+OMP_PROC_BIND=master OMP_PLACES=sockets OMP_NUM_THREADS=44 ./vecadd_opt3 Number of trials=10,    avg=0.0353569, std dev=0.00311364
+
+OMP_NUM_THREADS=22 ./vecadd_opt3 Number of trials=10,    avg=0.0191553, std dev=0.000565547
+
+OMP_PROC_BIND=true OMP_PLACES=threads OMP_NUM_THREADS=22 ./vecadd_opt3 Number of trials=10,    avg=0.0332151, std dev=0.00029108
+
+OMP_PROC_BIND=false OMP_PLACES=threads OMP_NUM_THREADS=22 ./vecadd_opt3 Number of trials=10,    avg=0.0188767, std dev=0.00054486
+
+OMP_PROC_BIND=close OMP_PLACES=threads OMP_NUM_THREADS=22 ./vecadd_opt3 Number of trials=10,    avg=0.0333464, std dev=0.000235058
+
+OMP_PROC_BIND=spread OMP_PLACES=threads OMP_NUM_THREADS=22 ./vecadd_opt3 Number of trials=10,    avg=0.0183874, std dev=4.62627e-05
+
+OMP_PROC_BIND=master OMP_PLACES=threads OMP_NUM_THREADS=22 ./vecadd_opt3 Number of trials=10,    avg=0.42029, std dev=0.034223
+
+OMP_PROC_BIND=true OMP_PLACES=cores OMP_NUM_THREADS=22 ./vecadd_opt3 Number of trials=10,    avg=0.0322104, std dev=0.000163425
+
+OMP_PROC_BIND=false OMP_PLACES=cores OMP_NUM_THREADS=22 ./vecadd_opt3 Number of trials=10,    avg=0.018907, std dev=0.000571654
+
+OMP_PROC_BIND=close OMP_PLACES=cores OMP_NUM_THREADS=22 ./vecadd_opt3 Number of trials=10,    avg=0.0320711, std dev=0.000177408
+
+OMP_PROC_BIND=spread OMP_PLACES=cores OMP_NUM_THREADS=22 ./vecadd_opt3 Number of trials=10,    avg=0.0184291, std dev=4.61854e-05
+
+OMP_PROC_BIND=master OMP_PLACES=cores OMP_NUM_THREADS=22 ./vecadd_opt3 Number of trials=10,    avg=0.270987, std dev=0.0139419
+
+OMP_PROC_BIND=true OMP_PLACES=sockets OMP_NUM_THREADS=22 ./vecadd_opt3 Number of trials=10,    avg=0.0231815, std dev=0.00241434
+
+OMP_PROC_BIND=false OMP_PLACES=sockets OMP_NUM_THREADS=22 ./vecadd_opt3 Number of trials=10,    avg=0.0192695, std dev=0.0006162
+
+OMP_PROC_BIND=close OMP_PLACES=sockets OMP_NUM_THREADS=22 ./vecadd_opt3 Number of trials=10,    avg=0.0237974, std dev=0.00184916
+
+OMP_PROC_BIND=spread OMP_PLACES=sockets OMP_NUM_THREADS=22 ./vecadd_opt3 Number of trials=10,    avg=0.0225427, std dev=0.00288265
+
+OMP_PROC_BIND=master OMP_PLACES=sockets OMP_NUM_THREADS=22 ./vecadd_opt3 Number of trials=10,    avg=0.0323596, std dev=0.00019938
+
+OMP_NUM_THREADS=16 ./vecadd_opt3 Number of trials=10,    avg=0.0230667, std dev=0.000220074
+
+OMP_PROC_BIND=true OMP_PLACES=threads OMP_NUM_THREADS=16 ./vecadd_opt3 Number of trials=10,    avg=0.0373159, std dev=0.000141634
+
+OMP_PROC_BIND=false OMP_PLACES=threads OMP_NUM_THREADS=16 ./vecadd_opt3 Number of trials=10,    avg=0.0229589, std dev=0.000115905
+
+OMP_PROC_BIND=close OMP_PLACES=threads OMP_NUM_THREADS=16 ./vecadd_opt3 Number of trials=10,    avg=0.0372326, std dev=0.000148106
+
+OMP_PROC_BIND=spread OMP_PLACES=threads OMP_NUM_THREADS=16 ./vecadd_opt3 Number of trials=10,    avg=0.0229174, std dev=3.28944e-05
+
+OMP_PROC_BIND=master OMP_PLACES=threads OMP_NUM_THREADS=16 ./vecadd_opt3 Number of trials=10,    avg=0.382691, std dev=0.00322618
+
+OMP_PROC_BIND=true OMP_PLACES=cores OMP_NUM_THREADS=16 ./vecadd_opt3 Number of trials=10,    avg=0.0320285, std dev=0.000163608
+
+OMP_PROC_BIND=false OMP_PLACES=cores OMP_NUM_THREADS=16 ./vecadd_opt3 Number of trials=10,    avg=0.0229211, std dev=7.85843e-05
+
+OMP_PROC_BIND=close OMP_PLACES=cores OMP_NUM_THREADS=16 ./vecadd_opt3 Number of trials=10,    avg=0.0320854, std dev=0.000217341
+
+OMP_PROC_BIND=spread OMP_PLACES=cores OMP_NUM_THREADS=16 ./vecadd_opt3 Number of trials=10,    avg=0.0229955, std dev=2.86784e-05
+
+OMP_PROC_BIND=master OMP_PLACES=cores OMP_NUM_THREADS=16 ./vecadd_opt3 Number of trials=10,    avg=0.255988, std dev=1.41422e-06
+
+OMP_PROC_BIND=true OMP_PLACES=sockets OMP_NUM_THREADS=16 ./vecadd_opt3 Number of trials=10,    avg=0.0292147, std dev=0.00360647
+
+OMP_PROC_BIND=false OMP_PLACES=sockets OMP_NUM_THREADS=16 ./vecadd_opt3 Number of trials=10,    avg=0.0230076, std dev=0.000166844
+
+OMP_PROC_BIND=close OMP_PLACES=sockets OMP_NUM_THREADS=16 ./vecadd_opt3 Number of trials=10,    avg=0.0284708, std dev=0.00454526
+
+OMP_PROC_BIND=spread OMP_PLACES=sockets OMP_NUM_THREADS=16 ./vecadd_opt3 Number of trials=10,    avg=0.0282606, std dev=0.00407534
+
+OMP_PROC_BIND=master OMP_PLACES=sockets OMP_NUM_THREADS=16 ./vecadd_opt3 Number of trials=10,    avg=0.0319715, std dev=0.000157799
+
+OMP_NUM_THREADS=8 ./vecadd_opt3 Number of trials=10,    avg=0.0435213, std dev=8.05668e-05
+
+OMP_PROC_BIND=true OMP_PLACES=threads OMP_NUM_THREADS=8 ./vecadd_opt3 Number of trials=10,    avg=0.0649044, std dev=0.000194311
+
+OMP_PROC_BIND=false OMP_PLACES=threads OMP_NUM_THREADS=8 ./vecadd_opt3 Number of trials=10,    avg=0.0435464, std dev=0.000114896
+
+OMP_PROC_BIND=close OMP_PLACES=threads OMP_NUM_THREADS=8 ./vecadd_opt3 Number of trials=10,    avg=0.0647825, std dev=0.000330192
+
+OMP_PROC_BIND=spread OMP_PLACES=threads OMP_NUM_THREADS=8 ./vecadd_opt3 Number of trials=10,    avg=0.0435662, std dev=8.9269e-05
+
+OMP_PROC_BIND=master OMP_PLACES=threads OMP_NUM_THREADS=8 ./vecadd_opt3 Number of trials=10,    avg=0.355691, std dev=0.00949775
+
+OMP_PROC_BIND=true OMP_PLACES=cores OMP_NUM_THREADS=8 ./vecadd_opt3 Number of trials=10,    avg=0.0451806, std dev=7.96984e-05
+
+OMP_PROC_BIND=false OMP_PLACES=cores OMP_NUM_THREADS=8 ./vecadd_opt3 Number of trials=10,    avg=0.0435141, std dev=7.16679e-05
+
+OMP_PROC_BIND=close OMP_PLACES=cores OMP_NUM_THREADS=8 ./vecadd_opt3 Number of trials=10,    avg=0.0452468, std dev=0.000125575
+
+OMP_PROC_BIND=spread OMP_PLACES=cores OMP_NUM_THREADS=8 ./vecadd_opt3 Number of trials=10,    avg=0.0436862, std dev=6.34079e-05
+
+OMP_PROC_BIND=master OMP_PLACES=cores OMP_NUM_THREADS=8 ./vecadd_opt3 Number of trials=10,    avg=0.247502, std dev=0.010785
+
+OMP_PROC_BIND=true OMP_PLACES=sockets OMP_NUM_THREADS=8 ./vecadd_opt3 Number of trials=10,    avg=0.0521883, std dev=0.00887099
+
+OMP_PROC_BIND=false OMP_PLACES=sockets OMP_NUM_THREADS=8 ./vecadd_opt3 Number of trials=10,    avg=0.0434662, std dev=6.49935e-05
+
+OMP_PROC_BIND=close OMP_PLACES=sockets OMP_NUM_THREADS=8 ./vecadd_opt3 Number of trials=10,    avg=0.0519364, std dev=0.00873123
+
+OMP_PROC_BIND=spread OMP_PLACES=sockets OMP_NUM_THREADS=8 ./vecadd_opt3 Number of trials=10,    avg=0.0510771, std dev=0.00813222
+
+OMP_PROC_BIND=master OMP_PLACES=sockets OMP_NUM_THREADS=8 ./vecadd_opt3 Number of trials=10,    avg=0.0449674, std dev=0.000193065
+
+OMP_NUM_THREADS=4 ./vecadd_opt3 Number of trials=10,    avg=0.0840466, std dev=0.000140958
+
+OMP_PROC_BIND=true OMP_PLACES=threads OMP_NUM_THREADS=4 ./vecadd_opt3 Number of trials=10,    avg=0.122759, std dev=0.000283076
+
+OMP_PROC_BIND=false OMP_PLACES=threads OMP_NUM_THREADS=4 ./vecadd_opt3 Number of trials=10,    avg=0.0840265, std dev=8.42559e-05
+
+OMP_PROC_BIND=close OMP_PLACES=threads OMP_NUM_THREADS=4 ./vecadd_opt3 Number of trials=10,    avg=0.123023, std dev=0.0001705
+
+OMP_PROC_BIND=spread OMP_PLACES=threads OMP_NUM_THREADS=4 ./vecadd_opt3 Number of trials=10,    avg=0.0848949, std dev=0.000287801
+
+OMP_PROC_BIND=master OMP_PLACES=threads OMP_NUM_THREADS=4 ./vecadd_opt3 Number of trials=10,    avg=0.35829, std dev=0.0114017
+
+OMP_PROC_BIND=true OMP_PLACES=cores OMP_NUM_THREADS=4 ./vecadd_opt3 Number of trials=10,    avg=0.0871447, std dev=0.000217207
+
+OMP_PROC_BIND=false OMP_PLACES=cores OMP_NUM_THREADS=4 ./vecadd_opt3 Number of trials=10,    avg=0.0839614, std dev=0.00018411
+
+OMP_PROC_BIND=close OMP_PLACES=cores OMP_NUM_THREADS=4 ./vecadd_opt3 Number of trials=10,    avg=0.0869501, std dev=0.000123979
+
+OMP_PROC_BIND=spread OMP_PLACES=cores OMP_NUM_THREADS=4 ./vecadd_opt3 Number of trials=10,    avg=0.0845073, std dev=0.000431388
+
+OMP_PROC_BIND=master OMP_PLACES=cores OMP_NUM_THREADS=4 ./vecadd_opt3 Number of trials=10,    avg=0.253753, std dev=0.00294375
+
+OMP_PROC_BIND=true OMP_PLACES=sockets OMP_NUM_THREADS=4 ./vecadd_opt3 Number of trials=10,    avg=0.0837538, std dev=0.000161914
+
+OMP_PROC_BIND=false OMP_PLACES=sockets OMP_NUM_THREADS=4 ./vecadd_opt3 Number of trials=10,    avg=0.084054, std dev=0.000199807
+
+OMP_PROC_BIND=close OMP_PLACES=sockets OMP_NUM_THREADS=4 ./vecadd_opt3 Number of trials=10,    avg=0.084575, std dev=0.00240908
+
+OMP_PROC_BIND=spread OMP_PLACES=sockets OMP_NUM_THREADS=4 ./vecadd_opt3 Number of trials=10,    avg=0.0848691, std dev=0.00293387
+
+OMP_PROC_BIND=master OMP_PLACES=sockets OMP_NUM_THREADS=4 ./vecadd_opt3 Number of trials=10,    avg=0.0865001, std dev=0.00024194
+
+OMP_NUM_THREADS=2 ./vecadd_opt3 Number of trials=10,    avg=0.163388, std dev=0.000462306
+
+OMP_PROC_BIND=true OMP_PLACES=threads OMP_NUM_THREADS=2 ./vecadd_opt3 Number of trials=10,    avg=0.232415, std dev=0.00269018
+
+OMP_PROC_BIND=false OMP_PLACES=threads OMP_NUM_THREADS=2 ./vecadd_opt3 Number of trials=10,    avg=0.163232, std dev=4.32268e-05
+
+OMP_PROC_BIND=close OMP_PLACES=threads OMP_NUM_THREADS=2 ./vecadd_opt3 Number of trials=10,    avg=0.233555, std dev=0.00232211
+
+OMP_PROC_BIND=spread OMP_PLACES=threads OMP_NUM_THREADS=2 ./vecadd_opt3 Number of trials=10,    avg=0.163857, std dev=0.000422913
+
+OMP_PROC_BIND=master OMP_PLACES=threads OMP_NUM_THREADS=2 ./vecadd_opt3 Number of trials=10,    avg=0.355004, std dev=0.00983061
+
+OMP_PROC_BIND=true OMP_PLACES=cores OMP_NUM_THREADS=2 ./vecadd_opt3 Number of trials=10,    avg=0.169122, std dev=0.000674435
+
+OMP_PROC_BIND=false OMP_PLACES=cores OMP_NUM_THREADS=2 ./vecadd_opt3 Number of trials=10,    avg=0.16359, std dev=0.000571021
+
+OMP_PROC_BIND=close OMP_PLACES=cores OMP_NUM_THREADS=2 ./vecadd_opt3 Number of trials=10,    avg=0.170319, std dev=0.000445933
+
+OMP_PROC_BIND=spread OMP_PLACES=cores OMP_NUM_THREADS=2 ./vecadd_opt3 Number of trials=10,    avg=0.16377, std dev=0.000467059
+
+OMP_PROC_BIND=master OMP_PLACES=cores OMP_NUM_THREADS=2 ./vecadd_opt3 Number of trials=10,    avg=0.232444, std dev=0.00218649
+
+OMP_PROC_BIND=true OMP_PLACES=sockets OMP_NUM_THREADS=2 ./vecadd_opt3 Number of trials=10,    avg=0.163408, std dev=0.000169275
+
+OMP_PROC_BIND=false OMP_PLACES=sockets OMP_NUM_THREADS=2 ./vecadd_opt3 Number of trials=10,    avg=0.163173, std dev=0.000206901
+
+OMP_PROC_BIND=close OMP_PLACES=sockets OMP_NUM_THREADS=2 ./vecadd_opt3 Number of trials=10,    avg=0.163393, std dev=8.35984e-05
+
+OMP_PROC_BIND=spread OMP_PLACES=sockets OMP_NUM_THREADS=2 ./vecadd_opt3 Number of trials=10,    avg=0.163351, std dev=4.36619e-05
+
+OMP_PROC_BIND=master OMP_PLACES=sockets OMP_NUM_THREADS=2 ./vecadd_opt3 Number of trials=10,    avg=0.167599, std dev=0.00062106
+
+OMP_NUM_THREADS=1 ./vecadd_opt3 Number of trials=10,    avg=0.324711, std dev=0.000475648
+
+OMP_PROC_BIND=true OMP_PLACES=threads OMP_NUM_THREADS=1 ./vecadd_opt3 Number of trials=10,    avg=0.328297, std dev=0.00104147
+
+OMP_PROC_BIND=false OMP_PLACES=threads OMP_NUM_THREADS=1 ./vecadd_opt3 Number of trials=10,    avg=0.325989, std dev=0.00131251
+
+OMP_PROC_BIND=close OMP_PLACES=threads OMP_NUM_THREADS=1 ./vecadd_opt3 Number of trials=10,    avg=0.328378, std dev=0.00109454
+
+OMP_PROC_BIND=spread OMP_PLACES=threads OMP_NUM_THREADS=1 ./vecadd_opt3 Number of trials=10,    avg=0.328196, std dev=0.00108725
+
+OMP_PROC_BIND=master OMP_PLACES=threads OMP_NUM_THREADS=1 ./vecadd_opt3 Number of trials=10,    avg=0.328282, std dev=0.00125179
+
+OMP_PROC_BIND=true OMP_PLACES=cores OMP_NUM_THREADS=1 ./vecadd_opt3 Number of trials=10,    avg=0.327976, std dev=0.00161952
+
+OMP_PROC_BIND=false OMP_PLACES=cores OMP_NUM_THREADS=1 ./vecadd_opt3 Number of trials=10,    avg=0.327125, std dev=0.00122952
+
+OMP_PROC_BIND=close OMP_PLACES=cores OMP_NUM_THREADS=1 ./vecadd_opt3 Number of trials=10,    avg=0.329259, std dev=0.00155846
+
+OMP_PROC_BIND=spread OMP_PLACES=cores OMP_NUM_THREADS=1 ./vecadd_opt3 Number of trials=10,    avg=0.328743, std dev=0.0021219
+
+OMP_PROC_BIND=master OMP_PLACES=cores OMP_NUM_THREADS=1 ./vecadd_opt3 Number of trials=10,    avg=0.328636, std dev=0.0013332
+
+OMP_PROC_BIND=true OMP_PLACES=sockets OMP_NUM_THREADS=1 ./vecadd_opt3 Number of trials=10,    avg=0.326206, std dev=0.00115439
+
+OMP_PROC_BIND=false OMP_PLACES=sockets OMP_NUM_THREADS=1 ./vecadd_opt3 Number of trials=10,    avg=0.328352, std dev=0.0044441
+
+OMP_PROC_BIND=close OMP_PLACES=sockets OMP_NUM_THREADS=1 ./vecadd_opt3 Number of trials=10,    avg=0.325741, std dev=0.00124069
+
+OMP_PROC_BIND=spread OMP_PLACES=sockets OMP_NUM_THREADS=1 ./vecadd_opt3 Number of trials=10,    avg=0.325002, std dev=0.000539302
+
+OMP_PROC_BIND=master OMP_PLACES=sockets OMP_NUM_THREADS=1 ./vecadd_opt3 Number of trials=10,    avg=0.326047, std dev=0.00168209

@@ -1,4 +1,4 @@
-#define _BSD_SOURCE || _GNU_SOURCE
+#define _GNU_SOURCE
 
 #include <stdio.h>
 #include <unistd.h>
@@ -37,22 +37,52 @@ static char *cpuset_to_cstr(cpu_set_t *mask, char *str)
   return(str);
 }
 
-void place_report(void)
+void place_report_omp(void)
 {
-  int rank, thread;
-  cpu_set_t coremask;
-  char clbuf[7 * CPU_SETSIZE], hnbuf[64];
-
-  memset(clbuf, 0, sizeof(clbuf));
-  memset(hnbuf, 0, sizeof(hnbuf));
-  (void)gethostname(hnbuf, sizeof(hnbuf));
-  #pragma omp parallel private(thread, coremask, clbuf)
-  {
-    thread = omp_get_thread_num();
-    (void)sched_getaffinity(0, sizeof(coremask), &coremask);
-    cpuset_to_cstr(&coremask, clbuf);
-    #pragma omp barrier
-    printf("Hello from thread %d, on %s. (core affinity = %s)\n",
-            rank, thread, hnbuf, clbuf);
-  }
+   #pragma omp parallel
+   {
+      if (omp_get_thread_num() == 0){
+         printf("Running with %d thread(s)\n",omp_get_num_threads());
+         int bind_policy = omp_get_proc_bind();
+         switch (bind_policy)
+         {
+            case omp_proc_bind_false:
+               printf("  proc_bind is false\n");
+               break;
+            case omp_proc_bind_true:
+               printf("  proc_bind is true\n");
+               break;
+            case omp_proc_bind_master:
+               printf("  proc_bind is master\n");
+               break;
+            case omp_proc_bind_close:
+               printf("  proc_bind is close\n");
+               break;
+            case omp_proc_bind_spread:
+               printf("  proc_bind is spread\n");
+         }
+         printf("  proc_num_places is %d\n",omp_get_num_places());
+      }
+   }
+ 
+   int socket_global[144];
+   char clbuf[7 * CPU_SETSIZE];
+   char clbuf_global[144][7 * CPU_SETSIZE];
+ 
+   memset(clbuf, 0, sizeof(clbuf));
+   #pragma omp parallel private(clbuf)
+   {
+      int thread = omp_get_thread_num();
+      cpu_set_t coremask;
+      (void)sched_getaffinity(0, sizeof(coremask), &coremask);
+      cpuset_to_cstr(&coremask, clbuf);
+      strcpy(clbuf_global[thread],clbuf);
+      socket_global[omp_get_thread_num()] = omp_get_place_num();
+      #pragma omp barrier
+      #pragma omp master
+      for (int i=0; i<omp_get_num_threads(); i++){
+         printf("Hello from thread %d: (core affinity = %s) OpenMP socket is %d\n",
+            i, clbuf_global[i], socket_global[i]);
+      }
+   }
 }
