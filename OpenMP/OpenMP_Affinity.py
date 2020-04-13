@@ -3,6 +3,7 @@ import numpy as np
 import array as arr 
 import matplotlib.cm as cm
 from itertools import cycle
+from matplotlib.figure import figaspect
 
 my_colors = iter(cm.gnuplot2(np.linspace(0, 1, 8)))
 
@@ -44,7 +45,7 @@ af_sockets_master = 0.324832/af_sockets_master
 af_cores_master = 0.324832/af_cores_master
 af_threads_master = 0.324832/af_threads_master
 
-fig, ax = plt.subplots()
+fig, ax = plt.subplots(figsize=(8,4))
 
 linecycler = cycle(("-","--","-.",":"))
 markercycler = cycle(('p', 'o', 'v', '^', '8', 'd', 'x'))
@@ -80,16 +81,15 @@ locs, labels = plt.yticks()
 speedup = np.array([1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20])
 plt.yticks(speedup)
 
-plt.xlabel('Number of Threads',fontsize=16)
-plt.ylabel('VecAdd Speedup',fontsize=16)
+plt.xlabel('Number of Threads',fontsize=12)
+plt.ylabel('VecAdd Speedup',fontsize=12)
 
-plt.tick_params(labelsize='large')
+plt.tick_params(labelsize='medium')
 
 plt.legend(loc=4,fontsize='medium')
 fig.tight_layout()
 plt.savefig("OpenMP_Affinity.pdf")
 plt.savefig("OpenMP_Affinity.svg")
-plt.savefig("OpenMP_Affinity.png", dpi=900)
+plt.savefig("OpenMP_Affinity.png", dpi=800)
 
 plt.show()
-
