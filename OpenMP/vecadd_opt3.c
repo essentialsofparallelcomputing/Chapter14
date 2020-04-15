@@ -41,4 +41,3 @@ void vector_add(double *c, double *a, double *b, int n)
       c[i] = a[i] + b[i];
    }
 }
-

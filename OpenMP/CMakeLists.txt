@@ -5,6 +5,10 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/")
 
 set (CMAKE_C_STANDARD 99)
 
+if (CMAKE_VERBOSE)
+   add_definitions(-DVERBOSE)
+endif (CMAKE_VERBOSE)
+
 # Set OpenMP flags for a few compilers
 
 find_package(Vector)

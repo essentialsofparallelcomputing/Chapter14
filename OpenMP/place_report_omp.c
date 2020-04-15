@@ -6,8 +6,9 @@
 #include <omp.h>
 #include <sys/syscall.h>
 
-/* Heavily modified from xthi.c code for OpenMP from a couple of HPC sites */
-/* Borrowed from util-linux-2.13-pre7/schedutils/taskset.c */
+/* Heavily modified from xthi.c code for use with OpenMP */
+/* xthi.c code is used in examples for hybrid MPI/OpenMP affinity from a few HPC sites */
+/* xthi.c originally borrowed some of this code from util-linux-2.13-pre7/schedutils/taskset.c */
 static char *cpuset_to_cstr(cpu_set_t *mask, char *str)
 {
   char *ptr = str;
