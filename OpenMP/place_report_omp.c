@@ -1,12 +1,12 @@
 #define _GNU_SOURCE
 
 #include <stdio.h>
-#include <unistd.h>
 #include <string.h>
 #include <sched.h>
 #include <omp.h>
 #include <sys/syscall.h>
 
+/* Heavily modified from xthi.c code for OpenMP from a couple of HPC sites */
 /* Borrowed from util-linux-2.13-pre7/schedutils/taskset.c */
 static char *cpuset_to_cstr(cpu_set_t *mask, char *str)
 {
