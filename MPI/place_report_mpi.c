@@ -8,7 +8,6 @@
 #include <omp.h>
 
 /* Borrowed from util-linux-2.13-pre7/schedutils/taskset.c */
-/*
 static char *cpuset_to_cstr(cpu_set_t *mask, char *str)
 {
   char *ptr = str;
@@ -37,23 +36,21 @@ static char *cpuset_to_cstr(cpu_set_t *mask, char *str)
   *ptr = 0;
   return(str);
 }
-*/
 
 void place_report_mpi(void)
 {
   int rank;
-  //cpu_set_t coremask;
-  char /*clbuf[7 * CPU_SETSIZE],*/ hnbuf[64];
+  cpu_set_t coremask;
+  char clbuf[7 * CPU_SETSIZE], hnbuf[64];
 
-  //memset(clbuf, 0, sizeof(clbuf));
+  memset(clbuf, 0, sizeof(clbuf));
   memset(hnbuf, 0, sizeof(hnbuf));
 
   MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 
   gethostname(hnbuf, sizeof(hnbuf));
-  //(void)sched_getaffinity(0, sizeof(coremask), &coremask);
-  //cpuset_to_cstr(&coremask, clbuf);
-  printf("Hello from rank %d, on %s. \n",/*(core affinity = %s)*/
-          rank, hnbuf/*, clbuf*/);
+  (void)sched_getaffinity(0, sizeof(coremask), &coremask);
+  cpuset_to_cstr(&coremask, clbuf);
+  printf("Hello from rank %d, on %s. (core affinity = %s)\n",
+          rank, hnbuf, clbuf);
 }
-
