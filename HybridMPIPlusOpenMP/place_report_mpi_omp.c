@@ -79,10 +79,10 @@ void place_report_mpi_omp(void)
       char clbuf[7 * CPU_SETSIZE], hnbuf[64];
       memset(clbuf, 0, sizeof(clbuf));
       memset(hnbuf, 0, sizeof(hnbuf));
+      gethostname(hnbuf, sizeof(hnbuf));
       sched_getaffinity(0, sizeof(coremask), &coremask);
       cpuset_to_cstr(&coremask, clbuf);
       strcpy(clbuf_global[thread],clbuf);
-      gethostname(hnbuf, sizeof(hnbuf));
       socket_global[omp_get_thread_num()] = omp_get_place_num();
       #pragma omp barrier
       #pragma omp master
