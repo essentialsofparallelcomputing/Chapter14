@@ -1,12 +1,13 @@
 #define _GNU_SOURCE
 
 #include <stdio.h>
+#include <unistd.h>
 #include <string.h>
 #include <sched.h>
+#include <mpi.h>
 #include <omp.h>
-#include <sys/syscall.h>
 
-/* Heavily modified from xthi.c code for use with OpenMP */
+/* Heavily modified from xthi.c code */
 /* xthi.c code is used in examples for hybrid MPI/OpenMP affinity from a few HPC sites */
 /* xthi.c originally borrowed some of this code from util-linux-2.13-pre7/schedutils/taskset.c */
 static char *cpuset_to_cstr(cpu_set_t *mask, char *str)
@@ -38,7 +39,7 @@ static char *cpuset_to_cstr(cpu_set_t *mask, char *str)
   return(str);
 }
 
-void place_report_omp(void)
+void place_report_mpi_omp(void)
 {
    #pragma omp parallel
    {
@@ -67,23 +68,27 @@ void place_report_omp(void)
    }
 
    int socket_global[144];
+   int rank;
    char clbuf_global[144][7 * CPU_SETSIZE];
 
+   MPI_Comm_rank(MPI_COMM_WORLD, &rank);
    #pragma omp parallel
    {
       int thread = omp_get_thread_num();
       cpu_set_t coremask;
-      char clbuf[7 * CPU_SETSIZE];
+      char clbuf[7 * CPU_SETSIZE], hnbuf[64];
       memset(clbuf, 0, sizeof(clbuf));
+      memset(hnbuf, 0, sizeof(hnbuf));
       sched_getaffinity(0, sizeof(coremask), &coremask);
       cpuset_to_cstr(&coremask, clbuf);
       strcpy(clbuf_global[thread],clbuf);
+      gethostname(hnbuf, sizeof(hnbuf));
       socket_global[omp_get_thread_num()] = omp_get_place_num();
       #pragma omp barrier
       #pragma omp master
       for (int i=0; i<omp_get_num_threads(); i++){
-         printf("Hello from thread %d: (core affinity = %s) OpenMP socket is %d\n",
-            i, clbuf_global[i], socket_global[i]);
+         printf("Hello from rank %d, thread %d, on %s. (core affinity = %s)\n",
+                 rank, i, hnbuf, clbuf_global[i], socket_global[i]);
       }
    }
 }
