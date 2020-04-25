@@ -49,7 +49,7 @@ void place_report_mpi(void)
   MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 
   gethostname(hnbuf, sizeof(hnbuf));
-  (void)sched_getaffinity(0, sizeof(coremask), &coremask);
+  sched_getaffinity(0, sizeof(coremask), &coremask);
   cpuset_to_cstr(&coremask, clbuf);
   printf("Hello from rank %d, on %s. (core affinity = %s)\n",
           rank, hnbuf, clbuf);

@@ -75,7 +75,7 @@ void place_report_omp(void)
    {
       int thread = omp_get_thread_num();
       cpu_set_t coremask;
-      (void)sched_getaffinity(0, sizeof(coremask), &coremask);
+      sched_getaffinity(0, sizeof(coremask), &coremask);
       cpuset_to_cstr(&coremask, clbuf);
       strcpy(clbuf_global[thread],clbuf);
       socket_global[omp_get_thread_num()] = omp_get_place_num();
