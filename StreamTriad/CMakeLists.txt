@@ -9,7 +9,7 @@ endif (CMAKE_VERBOSE)
 
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g -O3")
 
-set(CMAKE_MODULE_PATH cmake/Modules)
+set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/Modules)
 
 find_package(Vector)
 

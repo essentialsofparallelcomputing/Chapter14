@@ -43,6 +43,9 @@ void place_report_mpi_omp(void)
    int rank;
    MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 
+   int socket_global[144];
+   char clbuf_global[144][7 * CPU_SETSIZE];
+
    #pragma omp parallel
    {
       if (omp_get_thread_num() == 0 && rank == 0){
@@ -67,13 +70,7 @@ void place_report_mpi_omp(void)
          }
          printf("  proc_num_places is %d\n",omp_get_num_places());
       }
-   }
 
-   int socket_global[144];
-   char clbuf_global[144][7 * CPU_SETSIZE];
-
-   #pragma omp parallel
-   {
       int thread = omp_get_thread_num();
       cpu_set_t coremask;
       char clbuf[7 * CPU_SETSIZE], hnbuf[64];
