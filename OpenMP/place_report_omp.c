@@ -82,7 +82,7 @@ void place_report_omp(void)
       #pragma omp barrier
       #pragma omp master
       for (int i=0; i<omp_get_num_threads(); i++){
-         printf("Hello from thread %d: (core affinity = %s) OpenMP socket is %d\n",
+         printf("Hello from thread %2d: (core affinity = %s) OpenMP socket is %2d\n",
             i, clbuf_global[i], socket_global[i]);
       }
    }

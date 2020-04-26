@@ -38,12 +38,14 @@ static char *cpuset_to_cstr(cpu_set_t *mask, char *str)
   *ptr = 0;
   return(str);
 }
-
 void place_report_mpi_omp(void)
 {
+   int rank;
+   MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+
    #pragma omp parallel
    {
-      if (omp_get_thread_num() == 0){
+      if (omp_get_thread_num() == 0 && rank == 0){
          printf("Running with %d thread(s)\n",omp_get_num_threads());
          int bind_policy = omp_get_proc_bind();
          switch (bind_policy)
@@ -68,10 +70,8 @@ void place_report_mpi_omp(void)
    }
 
    int socket_global[144];
-   int rank;
    char clbuf_global[144][7 * CPU_SETSIZE];
 
-   MPI_Comm_rank(MPI_COMM_WORLD, &rank);
    #pragma omp parallel
    {
       int thread = omp_get_thread_num();
@@ -87,7 +87,7 @@ void place_report_mpi_omp(void)
       #pragma omp barrier
       #pragma omp master
       for (int i=0; i<omp_get_num_threads(); i++){
-         printf("Hello from rank %d, thread %d, on %s. (core affinity = %s)\n",
+         printf("Hello from rank %02d, thread %02d, on %s. (core affinity = %2s) OpenMP socket is %2d\n",
                  rank, i, hnbuf, clbuf_global[i], socket_global[i]);
       }
    }
