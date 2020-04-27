@@ -6,6 +6,8 @@ LOGICAL_PES_AVAILABLE=`lscpu |grep '^CPU(s):' |cut -d':' -f 2`
 SOCKETS_AVAILABLE=`lscpu |grep '^Socket(s):' |cut -d':' -f 2`
 THREADS_PER_CORE=`lscpu |grep '^Thread(s) per core:' |cut -d':' -f 2`
 POST_PROCESS="|& grep -e Average -e mpirun |sort -n -k 4"
+THREAD_LIST_FULL="2 4 11 22 44"
+THREAD_LIST_SHORT="2 11 22"
 
 unset OMP_PLACES
 unset OMP_CPU_BIND
@@ -22,7 +24,7 @@ eval ${RUN_STRING}
 
 export OMP_PROC_BIND=true
 
-for num_threads in 2 4 11 22 44
+for num_threads in ${THREAD_LIST_FULL}
 do
    export OMP_NUM_THREADS=${num_threads}
 
@@ -35,7 +37,7 @@ do
    eval ${RUN_STRING}
 done
 
-for num_threads in 2 4 11 22 44
+for num_threads in ${THREAD_LIST_FULL}
 do
    export OMP_NUM_THREADS=${num_threads}
 
@@ -50,7 +52,7 @@ done
 
 THREADS_PER_CORE=1
 export OMP_PROC_BIND=spread
-for num_threads in 2 11 22
+for num_threads in ${THREAD_LIST_SHORT}
 do
    export OMP_NUM_THREADS=${num_threads}
 
@@ -63,7 +65,7 @@ do
    eval ${RUN_STRING}
 done
 
-for num_threads in 2 11 22
+for num_threads in ${THREAD_LIST_SHORT}
 do
    export OMP_NUM_THREADS=${num_threads}
 
