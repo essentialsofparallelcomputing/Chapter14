@@ -16,7 +16,7 @@ export OMP_NUM_THREADS=2
 echo ${RUN_STRING}
 eval ${RUN_STRING}
 
-RUN_STRING="mpirun -n 44 --map-by socket ./StreamTriad |sort -n -k 4"
+RUN_STRING="mpirun -n 44 --map-by socket ./StreamTriad ${POST_PROCESS}"
 echo ${RUN_STRING}
 eval ${RUN_STRING}
 
