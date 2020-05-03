@@ -1,6 +1,6 @@
 #!/bin/sh
 cd libquo
-autoreconf -i
+autogen
 ./configure CC=mpicc --prefix=`pwd`
 make
 make install
