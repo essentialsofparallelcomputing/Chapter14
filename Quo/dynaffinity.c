@@ -39,7 +39,7 @@ void SyncIt(void)
     int rank;
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     MPI_Barrier(MPI_COMM_WORLD);
-    usleep((rank) * 1000);
+    usleep(rank * 1000);
 }
 
 int main(int argc, char **argv)
