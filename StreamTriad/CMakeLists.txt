@@ -29,7 +29,7 @@ find_package(MPI REQUIRED)
 # Require OpenMP for this project:
 find_package(OpenMP REQUIRED)
 
-add_executable(StreamTriad StreamTriad.c place_report_mpi_omp.c timer.c timer.h malloc2D.c malloc2D.h)
+add_executable(StreamTriad StreamTriad.c place_report_mpi_omp.c timer.c timer.h)
 
 set_target_properties(StreamTriad PROPERTIES INCLUDE_DIRECTORIES "${MPI_C_INCLUDE_PATH}")
 set_target_properties(StreamTriad PROPERTIES COMPILE_FLAGS "${MPI_C_COMPILE_FLAGS} ${OpenMP_C_FLAGS}")
