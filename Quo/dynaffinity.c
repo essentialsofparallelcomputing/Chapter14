@@ -70,7 +70,7 @@ int main(int argc, char **argv)
         if (rank == 0) {
             printf("\nEntering OMP region...\n\n");
             // expands the caller's cpuset to all available resources on the node.
-            QUO_bind_push(qcontext, QUO_BIND_PUSH_OBJ, QUO_OBJ_MACHINE, -1);
+            QUO_bind_push(qcontext, QUO_BIND_PUSH_OBJ, QUO_OBJ_SOCKET, -1);
             report_bindings(qcontext, rank);
             /* do the OpenMP calculation */
             place_report_mpi_omp();
