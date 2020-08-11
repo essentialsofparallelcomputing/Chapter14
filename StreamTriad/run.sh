@@ -1,7 +1,4 @@
 #!/bin/sh
-
-#set -v
-
 LOGICAL_PES_AVAILABLE=`lscpu |grep '^CPU(s):' |cut -d':' -f 2`
 SOCKETS_AVAILABLE=`lscpu |grep '^Socket(s):' |cut -d':' -f 2`
 THREADS_PER_CORE=`lscpu |grep '^Thread(s) per core:' |cut -d':' -f 2`
