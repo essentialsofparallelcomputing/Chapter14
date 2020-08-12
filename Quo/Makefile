@@ -11,6 +11,6 @@ dynaffinity: dynaffinity.c place_report.c libquo/lib/libquo.a
 
 clean:
 	rm -f *.o autobind dynaffinity
-	cd libquo; make clean; make distclean
+	#cd libquo; make clean; make distclean
 	cd libquo; rm -rf bin lib include ar-lib config.guess config.h.in config.h.in~ config.sub configure test-driver aclocal.m4
-	cd libquo; rm -f config/libtool.m4 config/ltoptions.m4 config/ltsugar.m4 config/ltversion.m4 config/lt~obsolete.m4
+	cd libquo; rm -f config/libtool.m4 config/ltoptions.m4 config/ltsugar.m4 config/ltversion.m4 config/lt~obsolete.m4 config.log
