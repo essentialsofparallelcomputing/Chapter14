@@ -2,12 +2,12 @@ All: OpenMP MPI Hybrid Quo
 .PHONY: OpenMP MPI Hybrid Quo
 
 OpenMP:
-	cd OpenMP && mkdir build && cd build && cmake -DCMAKE_VERBOSE=on .. && make && ./vecadd_opt1 && \
+	cd OpenMP && mkdir build && cd build && cmake -DCMAKE_VERBOSE=on .. && make && ./vecadd_opt3 && \
 	likwid-pin -c 0-4 ./vecadd_opt3
 
 MPI:
 	cd MPI && mkdir build && cd build && cmake .. && make && ./MPIAffinity | sort -n -k 4 && \
-	./mpirun_distrib "1 4" ./MPIAffinity && \
+	../mpirun_distrib.sh "1 4" ./MPIAffinity && \
 	likwid-mpirun -n 4 ./MPIAffinity
 
 Hybrid:
