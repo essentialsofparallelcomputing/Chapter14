@@ -7,8 +7,8 @@ OpenMP:
 
 MPI:
 	cd MPI && mkdir build && cd build && cmake .. && make && ./MPIAffinity | sort -n -k 4 && \
-	../mpirun_distrib.sh "1 4" ./MPIAffinity && \
-	likwid-mpirun -n 4 ./MPIAffinity
+	likwid-mpirun -n 4 ./MPIAffinity # && \
+        # ../mpirun_distrib.sh "1 4" ./MPIAffinity
 
 Hybrid:
 	cd StreamTriad && mkdir build && cd build && cmake -DCMAKE_VERBOSE=1 .. && make && mpirun -n 4 ./StreamTriad
