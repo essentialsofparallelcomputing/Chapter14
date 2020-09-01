@@ -1,8 +1,11 @@
 #!/bin/sh
-# Sets up Ubuntu 18.04 from bare-bones installation 
+# Sets up Ubuntu 20.04 from bare-bones installation 
 # Comment out what you don't need or run line-by-line, manually
-export DEBIAN_FRONTEND=noninteractive
+sudo apt-get -qq update && \
+DEBIAN_FRONTEND=noninteractive \
 sudo apt-get -qq install -y cmake make git vim gcc g++ gfortran software-properties-common wget gnupg-agent likwid
+             mpich libmpich-dev \
+             openmpi-bin openmpi-doc libopenmpi-dev
 
 sudo apt-get -qq install -y gcc-10 g++-10 gfortran-10
 
@@ -19,7 +22,6 @@ sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-10 90 \
 sudo chmod u+s /usr/bin/update-alternatives
 
 sudo apt-get clean && rm -rf /var/lib/apt/lists/*
-unset DEBIAN_FRONTEND
 
 make clean
 make
