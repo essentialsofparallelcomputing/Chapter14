@@ -31,7 +31,7 @@ int main(int argc, char *argv[]){
       time_sum += cpu_timer_stop(tstart);
    } // end of omp parallel
 
-   printf(" %lf ", time_sum);
+   printf(" %lf \n", time_sum);
 }
 
 void vector_add(double *c, double *a, double *b, int n)
