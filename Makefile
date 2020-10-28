@@ -1,4 +1,4 @@
-All: Explore OpenMP_basic OpenMP_explore OpenMP_likwid_pin MPI_basic MPI_hwloc MPI_likwid_pin Hybrid Quo
+All: Explore OpenMP_basic OpenMP_explore OpenMP_likwid_pin MPI_basic MPI_likwid_pin Hybrid Quo
 .PHONY: Explore OpenMP_basic OpenMP_explore OpenMP_likwid_pin MPI_basic MPI_hwloc MPI_likwid_pin Hybrid Quo
 
 Explore:
@@ -11,12 +11,12 @@ OpenMP_basic:
 	export OMP_NUM_THREADS=4 && export OMP_PLACES=cores && \
 	   export OMP_PROC_BIND=close && ./vecadd_opt3 && \
 	export OMP_NUM_THREADS=4 && export OMP_PROC_BIND=spread && \
-	   export OMP_PLACES=threads && ./vecadd_opt3 && \
+	   export OMP_PLACES=threads && ./vecadd_opt3
 
 OpenMP_explore:
-	cd OpenMP && mkdir build_explore && cd build_explore && cmake -DCMAKE_VERBOSE=on .. && make && \
-	./run.sh && \
-	python OpenMP_Affinity.py
+	cd OpenMP && mkdir build_explore && cd build_explore && cmake -DCMAKE_VERBOSE=on .. && make #&& \
+	#../run.sh && \
+	#python OpenMP_Affinity.py
 
 OpenMP_likwid_pin:
 	cd OpenMP && mkdir build_likwid && cd build_likwid && cmake -DCMAKE_VERBOSE=on .. && make && \
@@ -46,7 +46,7 @@ Hybrid:
 	cd StreamTriad && mkdir build && cd build && cmake -DCMAKE_VERBOSE=1 .. && make && \
 	mpirun -n 4 ./StreamTriad && \
 	export OMP_NUM_THREADS=2 && export OMP_PROC_BIND=true && mpirun -n 2 ./StreamTriad && \
-	./run.sh
+	../run.sh
 
 Quo:
 	cd Quo && make autobind && mpirun -n 4 ./autobind && make dynaffinity && mpirun -n 4 ./dynaffinity

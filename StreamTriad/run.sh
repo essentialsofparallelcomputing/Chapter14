@@ -2,7 +2,7 @@
 LOGICAL_PES_AVAILABLE=`lscpu |grep '^CPU(s):' |cut -d':' -f 2`
 SOCKETS_AVAILABLE=`lscpu |grep '^Socket(s):' |cut -d':' -f 2`
 THREADS_PER_CORE=`lscpu |grep '^Thread(s) per core:' |cut -d':' -f 2`
-POST_PROCESS="|& grep -e Average -e mpirun |sort -n -k 4"
+POST_PROCESS="\&| grep -e Average -e mpirun |sort -n -k 4"
 THREAD_LIST_FULL="2 4 11 22 44"
 THREAD_LIST_SHORT="2 11 22"
 
