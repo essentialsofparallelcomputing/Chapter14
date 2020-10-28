@@ -60,9 +60,17 @@ SHELL ["/bin/bash", "-c"]
 
 RUN groupadd chapter14 && useradd -m -s /bin/bash -g chapter14 chapter14
 
+RUN usermod -a -G video chapter14
+
 WORKDIR /home/chapter14
 RUN chown -R chapter14:chapter14 /home/chapter14
 USER chapter14
+
+ENV LANG='en_US.UTF-8'
+ENV DISPLAY=:0
+ENV NVIDIA_VISIBLE_DEVICES=all
+ENV NVIDIA_DRIVER_CAPABILITIES=display,graphics,utility
+#ENV NVIDIA_DRIVER_CAPABILITIES all
 
 RUN git clone --recursive https://github.com/essentialsofparallelcomputing/Chapter14.git
 

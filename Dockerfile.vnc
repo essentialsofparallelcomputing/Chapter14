@@ -96,6 +96,7 @@ RUN curl -O https://bootstrap.pypa.io/get-pip.py && \
 # Also, fix issue with Shift-Tab not working
 # https://askubuntu.com/questions/839842/vnc-pressing-shift-tab-tab-only
 RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive \
     apt-get install -y libxtst-dev libssl-dev libjpeg-dev && \
     \
     mkdir -p /tmp/x11vnc-0.9.14 && \
@@ -159,6 +160,8 @@ RUN groupadd -g $DOCKER_GID $DOCKER_GROUP && \
     echo "$DOCKER_TIMEZONE" > /etc/timezone && \
     ln -s -f /usr/share/zoneinfo/$DOCKER_TIMEZONE /etc/localtime
 
+RUN usermod -a -G video chapter14
+
 ADD image/etc /etc
 ADD image/usr /usr
 ADD image/sbin /sbin
@@ -175,7 +178,12 @@ RUN mkdir -p $DOCKER_HOME/.config/mozilla && \
 WORKDIR $DOCKER_HOME
 
 USER $DOCKER_USER
+
 ENV LANG=$DOCKER_LANG.UTF-8
+ENV DISPLAY=:0
+ENV NVIDIA_VISIBLE_DEVICES=all 
+ENV NVIDIA_DRIVER_CAPABILITIES=display,graphics,utility,compute
+
 ENV PATH=${PATH}:/opt/intel/oneapi/advisor/2021.1-beta08/bin64
 ENV PATH=${PATH}:/opt/intel/oneapi/compiler/2021.1-beta08/linux/bin/intel64
 ENV LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/opt/intel/oneapi/compiler/2021.1-beta08/linux/compiler/lib/intel64_lin
